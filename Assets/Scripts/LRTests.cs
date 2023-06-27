@@ -43,14 +43,14 @@ public class LRTests : MonoBehaviour
     }
 }*/
 
-/*
+
 //Module: OnCollisionEnter in Update() using Bool
 //Notes: Updates collision position every frame = points generated every frame = problem
 public class LRTests:MonoBehaviour{
     public LineRenderer lr;
-    bool isColl;
-    int x = 1;
-    //List<Vector3> points;
+    
+    
+    public List<Vector3> points = new List<Vector3>();
     private void Start() {
 
     }
@@ -58,27 +58,17 @@ public class LRTests:MonoBehaviour{
      
     void OnCollisionEnter(Collision col) {
         if(col.gameObject.name == "Canvas"){
-             isColl = true;
-        }
-    }
-     
-    void OnCollisionExit(Collision col) {
-      if(col.gameObject.name == "Canvas"){
-             isColl = false;
-        }
-    }
-     
-    void Update() {
-      if (isColl) {
+           
         Vector3 v  = transform.position;
         Debug.Log("Collision at "+v);
-        //points.Add(v);
-        lr.positionCount = x;
-        lr.SetPosition(x-1,v);
-        x++;
-      }
+        points.Add(v);
+        lr.positionCount = points.Count;
+        lr.SetPosition(points.Count-1,v);
+       
+        
+        }
     }
+   
 
-
-}*/
+}
 
